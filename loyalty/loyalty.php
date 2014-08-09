@@ -116,7 +116,7 @@ class Loyalty extends Module
 			INDEX index_loyalty_order (`id_order`),
 			INDEX index_loyalty_discount (`id_cart_rule`),
 			INDEX index_loyalty_customer (`id_customer`)
-		) DEFAULT CHARSET=utf8 ;');
+		) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
 
 		Db::getInstance()->execute('
 		CREATE TABLE `'._DB_PREFIX_.'loyalty_history` (
@@ -128,7 +128,7 @@ class Loyalty extends Module
 			PRIMARY KEY (`id_loyalty_history`),
 			INDEX `index_loyalty_history_loyalty` (`id_loyalty`),
 			INDEX `index_loyalty_history_loyalty_state` (`id_loyalty_state`)
-		) DEFAULT CHARSET=utf8 ;');
+		) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
 
 		Db::getInstance()->execute('
 		CREATE TABLE `'._DB_PREFIX_.'loyalty_state` (
@@ -136,7 +136,7 @@ class Loyalty extends Module
 			`id_order_state` INT UNSIGNED DEFAULT NULL,
 			PRIMARY KEY (`id_loyalty_state`),
 			INDEX index_loyalty_state_order_state (`id_order_state`)
-		) DEFAULT CHARSET=utf8 ;');
+		) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
 
 		Db::getInstance()->execute('
 		CREATE TABLE `'._DB_PREFIX_.'loyalty_state_lang` (
@@ -144,7 +144,7 @@ class Loyalty extends Module
 			`id_lang` INT UNSIGNED NOT NULL,
 			`name` varchar(64) NOT NULL,
 			UNIQUE KEY `index_unique_loyalty_state_lang` (`id_loyalty_state`,`id_lang`)
-		) DEFAULT CHARSET=utf8 ;');
+		) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
 
 		return true;
 	}
